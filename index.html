@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        </meta>
+        <title>SMW</title>
+    </head>
+    <body style="height: 100%; margin: 0">
+    	<button onclick="javascript:window.location.href='huobi.html'">公开市场业务交易</button>
+    	<button onclick="init('ma20')">ma20</button>
+    	<button onclick="init('ma10')">ma10</button>
+    	<button onclick="init('ma5')">ma5</button>
+    	<button onclick="javascript:bb_long()">当日股票池</button>
+    	<button onclick="javascript:window.location.href='https://raw.githubusercontent.com/im47cn/smw-light/master/stock.txt'">汇总股票池</button>
+        <div id="ma-container" style="height:2400px">
+        </div>
+        <script src="static/js/echarts/echarts.min.js" type="text/javascript">
+        </script>
+        <script src="static/js/zepto.min.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+var app = {};
+var industryList = ["Commercial Services", "Communications", "Consumer Durables", "Consumer Non-Durables", "Consumer Services", "Distribution Services", "Electronic Technology", "Energy Minerals", "Finance", "Health Services", "Health Technology", "Industrial Services", "Miscellaneous", "Non-Energy Minerals", "Process Industries", "Producer Manufacturing", "Retail Trade", "Technology Services", "Transportation", "Utilities"];
+var days = [];
+var datasets = [];
+
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "H+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+
+function draw(myChart, ma, days, data) {
+	// console.log(data);
+	data = data.map(function (item) {
+    	return [item[0], item[1], item[2]];
+	});
+	
+	// console.log(data);
+	option = {
+		title : {
+            show:true,
+            text: ma+' based SMW',
+        },
+	    tooltip: {
+	        position: 'top',
+	    },
+	    toolbox: {
+	        feature: {
+	            dataZoom: {
+	                yAxisIndex: 'none'
+	            },
+	            restore: {},
+	            saveAsImage: {}
+	        }      
+	    }, 
+	    animation: true,
+	    grid: {
+	        height: '60%',
+	        right: '8%'
+	    },
+	    xAxis: {
+	    	name: "industry",
+	        type: 'category',
+	        data: industryList,
+	        splitArea: {
+	            show: true
+	        },
+	        axisLabel: {
+	        	interval:0,
+                rotate:45,
+                margin:2
+	        }
+	    },
+	    yAxis: {
+	    	name: 'timeline',
+	        type: 'category',
+	        data: days,
+	        splitArea: {
+	            show: true
+	        }
+	    },
+	    visualMap: {
+	        min: 0,
+	        max: 100,
+	        calculable: true,
+	        orient: 'vertical',
+	        right: '1%',
+	        top: '5%',
+	        inRange: {
+	        	color: ['#ff0000', 'rgba(255,242,0,0.4)', '#1e9600'],
+	        	symbolSize: [40, 80]
+	        }
+	    },
+	    series: [{
+	        name: 'Stock Market Width',
+	        type: 'heatmap',
+	        data: data,
+	        label: {
+	            show: true,
+	            color:'black'
+	        },
+	        itemStyle: {
+            	normal: {
+                	width: 2,
+                	color: 'skyblue'
+                }
+            },
+	        emphasis: {
+	            itemStyle: {
+	                shadowBlur: 10,
+	                shadowColor: 'rgba(0, 0, 0, 0.5)'
+	            }
+	        },
+	    }]
+	};
+	if (option && typeof option === "object") {
+	    myChart.setOption(option, true);
+	}
+}
+
+function init(ma) {
+	var dom = document.getElementById("ma-container");
+	days=[];
+	datasets=[];
+	var myChart = echarts.init(dom, 'dark');
+	myChart.showLoading();
+
+	$.ajax({
+		url: 'https://raw.githubusercontent.com/im47cn/smw-light/master/'+ma+'.csv',
+		async: false,
+		dataType: "text",
+		success: function(res){
+			if (res.length === 0) {
+		    	return;
+		    }
+			var csvarry = res.split(/[\r\n]/);
+
+			myChart.getDom().style.height = (csvarry.length*20)+70+"px";
+        	myChart.resize();
+
+		    var datas = [];
+		    for(var i = csvarry.length - 1; i >= 0; i--){
+		    	// console.log(csvarry[i]);
+				item = csvarry[i].substring(0, csvarry[i].length-1)
+				if (item.length === 0) {
+		        	continue;
+		        }
+
+				var temp = item.split(',"');
+				var trade_date=temp[0];
+				dayIdx=days.indexOf(trade_date);
+				if (dayIdx === -1) {
+					days.push(trade_date);
+		        	// days.sort();
+		        	dayIdx=days.indexOf(trade_date);
+				}
+
+				// console.log(trade_date);
+				// console.log(dayIdx);
+
+				var mas = (temp[1]+'').split(",");
+				// console.log(mas);
+				for (var j = 0; j<mas.length; j++) {
+					var data = {};
+					data[1]=dayIdx;
+		        	data[0]=j;
+		        	data[2]=parseInt((mas[j]/100).toFixed(2), 0);
+		    		datas.push(data);
+				}
+			}
+			datasets.push.apply(datasets, datas);
+		}
+	});
+
+	draw(myChart, ma, days, datasets);
+	myChart.hideLoading();
+}
+
+init("ma20");
+
+// bb long
+function bb_long() {
+	date = new Date().Format("yyyyMMdd");
+	window.location.href="https://raw.githubusercontent.com/im47cn/smw-light/master/data/bb_long/bb_long_"+date+".csv";
+}
+        </script>
+    </body>
+</html>
