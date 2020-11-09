@@ -1,3 +1,143 @@
+20201030
+
+个股：
+   1 688015,交控科技,Producer Manufacturing,Trucks/Construction/Farm Machinery
+   1 603915,国茂股份,Producer Manufacturing,Industrial Machinery
+   1 300327,中颖电子,Electronic Technology,Semiconductors
+   1 300132,青松股份,Process Industries,Chemicals: Specialty
+
+一级行业：
+   2 Producer Manufacturing
+   1 Process Industries
+   1 Electronic Technology
+
+二级行业：
+   1 Producer Manufacturing,Trucks/Construction/Farm Machinery
+   1 Producer Manufacturing,Industrial Machinery
+   1 Process Industries,Chemicals: Specialty
+   1 Electronic Technology,Semiconductors
+
+20201029
+
+个股：
+   3 000513,丽珠集团,Health Technology,Pharmaceuticals: Other
+   2 002791,坚朗五金,Producer Manufacturing,Building Products
+   1 603915,国茂股份,Producer Manufacturing,Industrial Machinery
+   1 300206,理邦仪器,Health Technology,Medical Specialties
+   1 002088,鲁阳节能,Process Industries,Textiles
+
+一级行业：
+   4 Health Technology
+   3 Producer Manufacturing
+   1 Process Industries
+
+二级行业：
+   3 Health Technology,Pharmaceuticals: Other
+   2 Producer Manufacturing,Building Products
+   1 Producer Manufacturing,Industrial Machinery
+   1 Process Industries,Textiles
+   1 Health Technology,Medical Specialties
+
+20201028
+
+个股：
+   4 603301,振德医疗,Health Technology,Medical Specialties
+   4 002394,联发股份,Process Industries,Textiles
+   3 603915,国茂股份,Producer Manufacturing,Industrial Machinery
+   3 300470,中密控股,Producer Manufacturing,Industrial Machinery
+   2 688015,交控科技,Producer Manufacturing,Trucks/Construction/Farm Machinery
+   2 688006,杭可科技,Electronic Technology,Electronic Equipment/Instruments
+   2 300206,理邦仪器,Health Technology,Medical Specialties
+   1 603181,皇马科技,Process Industries,Chemicals: Specialty
+   1 600346,恒力石化,Producer Manufacturing,Industrial Machinery
+   1 300327,中颖电子,Electronic Technology,Semiconductors
+   1 002791,坚朗五金,Producer Manufacturing,Building Products
+   1 002669,康达新材,Process Industries,Industrial Specialties
+
+一级行业：
+  10 Producer Manufacturing
+   6 Process Industries
+   6 Health Technology
+   3 Electronic Technology
+
+二级行业：
+   7 Producer Manufacturing,Industrial Machinery
+   6 Health Technology,Medical Specialties
+   4 Process Industries,Textiles
+   2 Producer Manufacturing,Trucks/Construction/Farm Machinery
+   2 Electronic Technology,Electronic Equipment/Instruments
+   1 Producer Manufacturing,Building Products
+   1 Process Industries,Industrial Specialties
+   1 Process Industries,Chemicals: Specialty
+   1 Electronic Technology,Semiconductors
+
+20201027
+
+个股：
+   2 002791,坚朗五金,Producer Manufacturing,Building Products
+   1 603816,顾家家居,Consumer Durables,Home Furnishings
+   1 601799,星宇股份,Producer Manufacturing,Auto Parts: OEM
+   1 600426,华鲁恒升,Process Industries,Chemicals: Major Diversified
+   1 300791,仙乐健康,Health Technology,Pharmaceuticals: Other
+   1 300685,艾德生物,Health Technology,Medical Specialties
+   1 002394,联发股份,Process Industries,Textiles
+
+一级行业：
+   3 Producer Manufacturing
+   2 Process Industries
+   2 Health Technology
+   1 Consumer Durables
+
+二级行业：
+   2 Producer Manufacturing,Building Products
+   1 Producer Manufacturing,Auto Parts: OEM
+   1 Process Industries,Textiles
+   1 Process Industries,Chemicals: Major Diversified
+   1 Health Technology,Pharmaceuticals: Other
+   1 Health Technology,Medical Specialties
+   1 Consumer Durables,Home Furnishings
+
+20201026
+
+个股：
+   4 300596,利安隆,Process Industries,Industrial Specialties
+   3 603786,科博达,Producer Manufacturing,Auto Parts: OEM
+   3 603301,振德医疗,Health Technology,Medical Specialties
+   2 002933,新兴装备,Electronic Technology,Aerospace & Defense
+   1 688006,杭可科技,Electronic Technology,Electronic Equipment/Instruments
+   1 603897,长城科技,Producer Manufacturing,Electrical Products
+   1 603010,万盛股份,Process Industries,Industrial Specialties
+   1 300423,昇辉科技,Producer Manufacturing,Electrical Products
+   1 002896,中大力德,Producer Manufacturing,Industrial Machinery
+   1 002394,联发股份,Process Industries,Textiles
+
+一级行业：
+   6 Producer Manufacturing
+   6 Process Industries
+   3 Health Technology
+   3 Electronic Technology
+
+二级行业：
+   5 Process Industries,Industrial Specialties
+   3 Producer Manufacturing,Auto Parts: OEM
+   3 Health Technology,Medical Specialties
+   2 Producer Manufacturing,Electrical Products
+   2 Electronic Technology,Aerospace & Defense
+   1 Producer Manufacturing,Industrial Machinery
+   1 Process Industries,Textiles
+   1 Electronic Technology,Electronic Equipment/Instruments
+
+20201024
+
+个股：
+   1 603970,中农立华,Process Industries,Chemicals: Agricultural
+
+一级行业：
+   1 Process Industries
+
+二级行业：
+   1 Process Industries,Chemicals: Agricultural
+
 20201023
 
 个股：
