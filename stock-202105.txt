@@ -1,0 +1,33 @@
+20210519
+
+个股：
+   1 603306,华懋科技,Process Industries,Textiles
+
+一级行业：
+   1 Process Industries
+
+二级行业：
+   1 Process Industries,Textiles
+
+20210512
+
+个股：
+   1 300121,阳谷华泰,Producer Manufacturing,Miscellaneous Manufacturing
+
+一级行业：
+   1 Producer Manufacturing
+
+二级行业：
+   1 Producer Manufacturing,Miscellaneous Manufacturing
+
+20210510
+
+个股：
+   1 603306,华懋科技,Process Industries,Textiles
+
+一级行业：
+   1 Process Industries
+
+二级行业：
+   1 Process Industries,Textiles
+
